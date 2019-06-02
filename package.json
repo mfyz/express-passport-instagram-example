@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-	"dev": "nodemon index.js",
-	"public": "ssh -R mfyz-express-passport-facebook-example:80:localhost:4009 serveo.net",
-	"bgrok": "ngrok http 4009"
+    "dev": "nodemon index.js",
+    "public": "ssh -R mfyz-express-passport-ig-example:80:localhost:4009 serveo.net",
+    "bgrok": "ngrok http 4011"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +21,7 @@
     "express-session": "^1.16.1",
     "helmet": "^3.16.0",
     "passport": "^0.4.0",
-    "passport-facebook": "^3.0.0",
+    "passport-instagram": "^1.0.0",
     "passport-local": "^1.0.0",
     "pg": "^7.10.0",
     "pug": "^2.0.3",

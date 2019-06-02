@@ -10,7 +10,7 @@ const LocalStrategy = require('passport-local').Strategy
 const InstagramStrategy = require('passport-instagram').Strategy
 const dbUtil = require('./dbUtil')
 
-const PORT = process.env.PORT || 4009
+const PORT = process.env.PORT || 4011
 const INSTAGRAM_CLIENT_ID = process.env.INSTAGRAM_CLIENT_ID
 const INSTAGRAM_CLIENT_SECRET = process.env.INSTAGRAM_CLIENT_SECRET
 const INSTAGRAM_CALLBACK_URL = process.env.INSTAGRAM_CALLBACK_URL
