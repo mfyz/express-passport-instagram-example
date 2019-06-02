@@ -1,0 +1,8 @@
+extends layout
+block content
+	h1 My Photos
+	.photos
+		each photo in photos
+			.photo
+				a(href= photo.link target='_blank')
+					img(src= photo.images.low_resolution.url)

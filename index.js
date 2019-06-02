@@ -8,12 +8,18 @@ const helmet = require('helmet')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const InstagramStrategy = require('passport-instagram').Strategy
+const ig = require('instagram-node').instagram()
 const dbUtil = require('./dbUtil')
 
 const PORT = process.env.PORT || 4011
 const INSTAGRAM_CLIENT_ID = process.env.INSTAGRAM_CLIENT_ID
 const INSTAGRAM_CLIENT_SECRET = process.env.INSTAGRAM_CLIENT_SECRET
 const INSTAGRAM_CALLBACK_URL = process.env.INSTAGRAM_CALLBACK_URL
+
+ig.use({
+	client_id: INSTAGRAM_CLIENT_ID,
+	client_secret: INSTAGRAM_CLIENT_SECRET
+})
 
 // ----------- Express -----------
 const app = express()
@@ -137,6 +143,16 @@ app.get('/', (req, res) => {
 
 app.get('/member', authRequired, (req, res) => {
 	res.render('member')
+})
+
+app.get('/photos', authRequired, (req, res) => {
+	if (!req.user.igid) return res.render('error', { message: 'You need instagram account linked!' })
+	ig.use({ access_token: req.user.igtoken })
+	const userId = req.user.igtoken.split('.')[0] // ig user id, like: 1633560409
+	ig.user_media_recent(userId, (err, result, pagination, remaining, limit) => {
+		if(err) return res.render('error')
+		res.render('photos', { photos: result })
+	})
 })
 
 app.all('/login', (req, res, next) => {

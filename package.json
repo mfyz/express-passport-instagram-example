@@ -20,6 +20,7 @@
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "helmet": "^3.16.0",
+    "instagram-node": "^0.5.8",
     "passport": "^0.4.0",
     "passport-instagram": "^1.0.0",
     "passport-local": "^1.0.0",
