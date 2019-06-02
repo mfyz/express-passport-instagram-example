@@ -70,7 +70,7 @@ passport.use(new InstagramStrategy({
 	function(accessToken, refreshToken, profile, done) {
 		if (accessToken && Object.keys(profile).length > 0) {
 			// console.log(accessToken, refreshToken, profile)
-			dbUtil.getUserByFbid(profile.id)
+			dbUtil.getUserByIgid(profile.id)
 				.then(user => {
 					done(null, { accessToken, profile, user })
 				})
@@ -252,7 +252,7 @@ app.get('/logout', authRequired, (req, res) => {
 	res.redirect('/')
 })
 
-app.get('/auth/instagram', passport.authenticate('instagram'))
+app.get('/auth/instagram', passport.authenticate('instagram', passportConfig))
 
 app.get('/instagram/callback', (req, res, next) => {
 	passport.authenticate('instagram', (err, response) => {
@@ -260,7 +260,7 @@ app.get('/instagram/callback', (req, res, next) => {
 			// console.log(err)
 			res.render('error', { message: err.message })
 		}
-		// Fb logged in, if user account matched...
+		// Ig logged in, if user account matched...
 		else if (response && response.user) {
 			req.login(response.user, err => { // save authentication
 				if (err) return res.render('error', { message: err.message })
