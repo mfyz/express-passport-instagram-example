@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		title Passport Test
+		link(rel='stylesheet', href='/style.css', type='text/css')
+	body
+		div.pageWrapper
+			div.siteHeader
+				h3 Passport Test App
+				a(href='/') Home
+				span &nbsp; - &nbsp;
+				a(href='/member') Member Page
+				span &nbsp; - &nbsp;
+				if user
+					a(href='/logout') Logout
+				else
+					a(href='/login') Login
+					span &nbsp; - &nbsp;
+					a(href='/register') Register
+			block content

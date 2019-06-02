@@ -1,0 +1,24 @@
+extends layout
+block content
+	h1 Register
+	form(method="post")
+		input(type="hidden", name="_csrf", value=csrfToken)
+
+		if error
+			.error= error
+
+		label(for="email") E-mail
+		input#email(type="text", name="email", value=form.email)
+
+		label(for="username") Username
+		input#username(type="text", name="username", value=form.username)
+
+		label(for="password") Password
+		input#password(type="password", name="password")
+
+		label(for="password2") Re-type Password
+		input#password2(type="password", name="password2")
+
+		button(type="submit") Register
+		span &nbsp; or &nbsp;
+		a(href="/register-facebook/confirm") Register with Facebook

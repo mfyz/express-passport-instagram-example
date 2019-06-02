@@ -1,0 +1,30 @@
+{
+  "name": "express-passport-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"dev": "nodemon index.js",
+	"public": "ssh -R mfyz-express-passport-facebook-example:80:localhost:4009 serveo.net",
+	"bgrok": "ngrok http 4009"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.21.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "csurf": "^1.9.0",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "helmet": "^3.16.0",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.10.0",
+    "pug": "^2.0.3",
+    "squel": "^5.12.2"
+  }
+}

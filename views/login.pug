@@ -1,0 +1,18 @@
+extends layout
+block content
+	h1 Login
+	form(method="post")
+		input(type="hidden", name="_csrf", value=csrfToken)
+
+		if error
+			.error= error
+
+		label(for="username") Username
+		input#username(type="text", name="username", value=form.username)
+		
+		label(for="password") Password
+		input#password(type="password", name="password")
+		
+		button(type="submit") Login
+		span &nbsp; or &nbsp;
+		a(href="/auth/facebook") Facebook Login
