@@ -63,8 +63,8 @@ passport.use(new LocalStrategy((username, password, done) => {
 }))
 
 passport.use(new InstagramStrategy({
-		clientID: INSTAGRAM_APP_ID,
-		clientSecret: INSTAGRAM_APP_SECRET,
+		clientID: INSTAGRAM_CLIENT_ID,
+		clientSecret: INSTAGRAM_CLIENT_SECRET,
 		callbackURL: INSTAGRAM_CALLBACK_URL
 	},
 	function(accessToken, refreshToken, profile, done) {
