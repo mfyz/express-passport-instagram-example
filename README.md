@@ -1,4 +1,5 @@
-# express-passport-instagram-example
+# Node Express Passport.js Instagram Example
+
 
 ### Set up posgres
 
@@ -6,6 +7,7 @@
 2. heroku config
 3. Copy the POSTGRES_URL to .env file
 4. Connect to db and import the users table in db.sql file
+
 
 ## Set up Instagram Application
 
@@ -16,10 +18,23 @@
 3. Set up redirect urls in the app in InstagramStrategy object config
 4. Add the callback urls to instagram app's whitelisted redirect urls
 
+
+### Env File
+
+You need to create and place all configuration about your database, instagram app details in .env file or in your target platform's environment variables. The env file or variables listed below:
+
+```
+DATABASE_URL=postgres://...
+INSTAGRAM_CLIENT_ID=9d024....
+INSTAGRAM_CLIENT_SECRET=082fd...
+INSTAGRAM_CALLBACK_URL=https://...
+```
+
 ### Run
 
 1. npm install
 2. node index.js
+
 
 ### Deploy on heroku
 
